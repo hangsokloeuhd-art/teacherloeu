@@ -1,1 +1,223 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon espace français</title>
+
+<style>
+:root {
+  --violet: #A68BE0;
+  --rose: #F6A5C7;
+  --jaune: #FFD782;
+  --fond: #FFF8F3;
+  --texte: #55436D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+header {
+  background: var(--texte);
+  color: white;
+  padding: 25px 8%;
+  text-align: center;
+}
+
+nav {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: var(--texte);
+  text-decoration: none;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 32px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 4px 12px #55436D15;
+  text-align: center;
+}
+
+.card:nth-child(1) { border-top: 6px solid var(--violet); }
+.card:nth-child(2) { border-top: 6px solid var(--rose); }
+.card:nth-child(3) { border-top: 6px solid var(--jaune); }
+
+button {
+  background: var(--violet);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.quiz {
+  background: white;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 18px;
+}
+
+footer {
+  background: var(--texte);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+@media(max-width: 600px) {
+  nav a {
+    display: inline-block;
+    margin: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Mon espace français</h1>
+  <p>Apprendre le français autrement !</p>
+</header>
+
+<nav>
+  <a href="#accueil">Accueil</a>
+  <a href="#lecons">Leçons</a>
+  <a href="#exercices">Exercices</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#assistant">Assistant IA</a>
+</nav>
+
+<section class="hero" id="accueil">
+  <h2>Bienvenue dans ton espace d'apprentissage !</h2>
+  <p>Découvre, apprends, entraîne-toi et progresse en français.</p>
+  <button onclick="document.querySelector('#lecons').scrollIntoView({behavior:'smooth'})">
+    Commencer à apprendre
+  </button>
+</section>
+
+<main class="container">
+
+<section id="lecons">
+  <h2>📖 Nos quatre rubriques</h2>
+
+  <div class="grid">
+    <article class="card">
+      <h3>📚 Leçons</h3>
+      <p>Découvre la grammaire et le vocabulaire français.</p>
+    </article>
+
+    <article class="card" id="exercices">
+      <h3>✍️ Exercices</h3>
+      <p>Entraîne-toi avec des activités pratiques.</p>
+    </article>
+
+    <article class="card" id="quiz">
+      <h3>🎯 Quiz</h3>
+      <p>Teste tes connaissances en français.</p>
+    </article>
+
+    <article class="card" id="assistant">
+      <h3>🤖 Assistant IA</h3>
+      <p>Pose tes questions et demande des explications.</p>
+    </article>
+  </div>
+</section>
+
+<section class="quiz">
+  <h2>🎯 Petit quiz de français</h2>
+  <p>Quelle phrase est correcte ?</p>
+
+  <label>
+    <input type="radio" name="reponse" value="a">
+    Je suis allé à l'école.
+  </label><br><br>
+
+  <label>
+    <input type="radio" name="reponse" value="b">
+    Je suis aller à l'école.
+  </label><br><br>
+
+  <button onclick="verifier()">Vérifier ma réponse</button>
+
+  <p id="resultat" aria-live="polite"></p>
+</section>
+
+</main>
+
+<footer>
+  <p>Mon espace français – Apprendre avec plaisir ❤️</p>
+</footer>
+
+<script>
+function verifier() {
+  const choix = document.querySelector(
+    'input[name="reponse"]:checked'
+  );
+
+  const resultat = document.getElementById("resultat");
+
+  if (!choix) {
+    resultat.textContent = "Choisis une réponse !";
+    return;
+  }
+
+  if (choix.value === "a") {
+    resultat.textContent = "Bravo ! Excellente réponse ! 🎉";
+  } else {
+    resultat.textContent =
+      "Pas tout à fait ! Après « suis », on utilise le participe passé « allé ».";
+  }
+}
+</script>
+
+</body>
+</html>
+
