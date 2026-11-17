@@ -190,6 +190,178 @@
   <p id="resultat" aria-live="polite"></p>
 </section>
 
+<!-- ===== LEÇON DE CONJUGAISON ===== -->
+
+<section class="lesson-section"
+         id="lecon-conjugaison">
+
+  <h2 class="lesson-title">
+    📚 Les verbes du premier groupe
+  </h2>
+
+  <div class="lesson-intro">
+    <h3>🌸 Bonjour les amis !</h3>
+
+    Aujourd'hui, nous allons apprendre à conjuguer
+    les verbes du premier groupe au présent.
+
+    Prépare-toi ! Nous allons apprendre en nous amusant.
+  </div>
+
+  <div class="lesson-card">
+
+    <h3>1. Qu'est-ce qu'un verbe du premier groupe ?</h3>
+
+    Les verbes du premier groupe se terminent
+    généralement par -ER à l'infinitif.
+
+    <p>Voici quelques exemples :</p>
+
+    <ul>
+      <li>Parler</li>
+      <li>Aimer</li>
+      <li>Chanter</li>
+      <li>Jouer</li>
+      <li>Regarder</li>
+      <li>Travailler</li>
+    </ul>
+
+    <p>
+      Attention : le verbe ALLER est une exception.
+      Il appartient au troisième groupe.
+    </p>
+
+  </div>
+
+  <div class="lesson-card">
+
+    <h3>2. Comment conjuguer un verbe ?</h3>
+
+    <p>
+      Pour conjuguer un verbe du premier groupe :
+    </p>
+
+    <p>1. On enlève la terminaison -ER.</p>
+    <p>2. On ajoute la terminaison correspondante.</p>
+
+    <div class="lesson-example">
+      <strong>Exemple : PARLER</strong>
+
+      <p>PARLER → PARL + terminaison</p>
+    </div>
+
+    <h3>Les terminaisons au présent</h3>
+
+    <table class="lesson-table">
+      <tr>
+        <th>Sujet</th>
+        <th>Terminaison</th>
+        <th>Parler</th>
+      </tr>
+
+      <tr>
+        <td>Je</td>
+        <td>-e</td>
+        <td>Je parle</td>
+      </tr>
+
+      <tr>
+        <td>Tu</td>
+        <td>-es</td>
+        <td>Tu parles</td>
+      </tr>
+
+      <tr>
+        <td>Il / Elle</td>
+        <td>-e</td>
+        <td>Il parle</td>
+      </tr>
+
+      <tr>
+        <td>Nous</td>
+        <td>-ons</td>
+        <td>Nous parlons</td>
+      </tr>
+
+      <tr>
+        <td>Vous</td>
+        <td>-ez</td>
+        <td>Vous parlez</td>
+      </tr>
+
+      <tr>
+        <td>Ils / Elles</td>
+        <td>-ent</td>
+        <td>Ils parlent</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class="lesson-card">
+
+    <h3>3. Quelques exemples</h3>
+
+    <div class="lesson-example">
+      ❤️ J'aime le français.
+    </div>
+
+    <div class="lesson-example">
+      ⚽ Tu joues au ballon.
+    </div>
+
+    <div class="lesson-example">
+      🎵 Elle chante une chanson.
+    </div>
+
+    <div class="lesson-example">
+      📺 Nous regardons la télévision.
+    </div>
+
+    <div class="lesson-example">
+      📖 Vous parlez français.
+    </div>
+
+    <div class="lesson-example">
+      🏫 Ils travaillent à l'école.
+    </div>
+
+  </div>
+
+  <!-- EXERCICE INTERACTIF -->
+
+  <div class="lesson-exercise">
+
+    <h3>🎯 4. À toi de jouer !</h3>
+
+    <p>
+      Complète la phrase avec la bonne réponse.
+    </p>
+
+    <h3>Je ______ français.</h3>
+
+    <select id="reponse-conjugaison">
+      <option value="">Choisis ta réponse</option>
+      <option value="parle">parle</option>
+      <option value="parles">parles</option>
+      <option value="parlons">parlons</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="verifierConjugaison()">
+      Vérifier ma réponse
+    </button>
+
+    <p id="feedback-conjugaison"
+       class="lesson-feedback"
+       aria-live="polite">
+    </p>
+
+  </div>
+
+</section>
+
 </main>
 
 <footer>
@@ -216,6 +388,41 @@ function verifier() {
       "Pas tout à fait ! Après « suis », on utilise le participe passé « allé ».";
   }
 }
+  
+function verifierConjugaison() {
+
+  const reponse = document.getElementById(
+    "reponse-conjugaison"
+  ).value;
+
+  const feedback = document.getElementById(
+    "feedback-conjugaison"
+  );
+
+  if (reponse === "") {
+
+    feedback.textContent =
+      "Choisis une réponse avant de vérifier ! 😊";
+
+    feedback.style.color = "#55436D";
+
+  } else if (reponse === "parle") {
+
+    feedback.textContent =
+      "Bravo ! 🎉 Je parle français. C'est correct !";
+
+    feedback.style.color = "green";
+
+  } else {
+
+    feedback.textContent =
+      "Essaie encore ! Avec JE, quelle terminaison faut-il utiliser ? 💡";
+
+    feedback.style.color = "#D45B82";
+
+  }
+}
+
 </script>
 
 </body>
